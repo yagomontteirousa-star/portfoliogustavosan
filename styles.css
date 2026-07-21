@@ -189,6 +189,7 @@ a {
   border-radius: 48% 52% 45% 55% / 28% 24% 76% 72%;
   opacity: 0.34;
   transform: translateX(-50%);
+  contain: paint;
   -webkit-mask-image: radial-gradient(ellipse 72% 66% at 50% 47%, #000 30%, transparent 78%);
   mask-image: radial-gradient(ellipse 72% 66% at 50% 47%, #000 30%, transparent 78%);
 }
@@ -209,7 +210,8 @@ a {
   object-fit: cover;
   object-position: 50% 50%;
   filter: brightness(0.5) saturate(0.6) contrast(0.92) blur(2px);
-  transform: scale(1.06);
+  transform: translateZ(0) scale(1.06);
+  will-change: transform;
 }
 
 .hero-area {
@@ -344,8 +346,54 @@ a {
 }
 
 .mail-icon {
-  font-size: 1rem;
-  line-height: 1;
+  position: relative;
+  width: 17px;
+  height: 13px;
+  display: block;
+  border: 1.5px solid currentColor;
+  border-radius: 2px;
+}
+
+.mail-icon::after {
+  position: absolute;
+  top: -3px;
+  left: 2px;
+  width: 10px;
+  height: 10px;
+  content: "";
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: rotate(45deg);
+}
+
+.volume-icon {
+  position: relative;
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+
+.volume-icon::before {
+  position: absolute;
+  top: 5px;
+  left: 0;
+  width: 5px;
+  height: 6px;
+  content: "";
+  background: currentColor;
+}
+
+.volume-icon::after {
+  position: absolute;
+  top: 2px;
+  left: 5px;
+  width: 8px;
+  height: 10px;
+  content: "";
+  border-top: 2px solid currentColor;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  border-radius: 0 12px 12px 0;
 }
 
 .brands-section {
@@ -472,6 +520,7 @@ a {
 
 .work-list {
   min-width: 0;
+  width: 100%;
   height: 100%;
   padding-right: 7px;
   display: grid;
@@ -479,8 +528,11 @@ a {
   grid-auto-rows: calc((100% - 10px) / 3);
   gap: 5px;
   align-content: stretch;
+  overflow-x: hidden;
   overflow-y: auto;
+  overscroll-behavior-x: none;
   overscroll-behavior: contain;
+  touch-action: pan-y;
   scrollbar-width: thin;
   scrollbar-color: rgba(8, 187, 183, 0.62) transparent;
 }
@@ -496,6 +548,7 @@ a {
 
 .work-option {
   width: 100%;
+  min-width: 0;
   min-height: 0;
   padding: 12px;
   display: grid;
@@ -509,6 +562,10 @@ a {
   text-align: left;
   cursor: pointer;
   transition: border-color 180ms ease, background 180ms ease, color 180ms ease, transform 180ms ease;
+}
+
+.work-option > span:last-child {
+  min-width: 0;
 }
 
 .work-number {
@@ -882,6 +939,7 @@ a {
 @media (max-width: 900px) {
   body {
     padding-bottom: 100px;
+    -webkit-overflow-scrolling: touch;
   }
 
   .topbar {
@@ -1047,8 +1105,10 @@ a {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     height: 234px;
+    padding-right: 0;
     grid-auto-rows: calc((100% - 12px) / 3);
     gap: 6px;
+    -webkit-overflow-scrolling: touch;
   }
 
   .work-option {
@@ -1135,6 +1195,17 @@ a {
     color: var(--ink);
     font-size: 0.75rem;
     font-weight: 750;
+  }
+
+  .topbar,
+  .work-section,
+  .mobile-dock {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+  }
+
+  .brand-row {
+    will-change: opacity, transform;
   }
 }
 
