@@ -4,206 +4,107 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Gustavo San - Locutor Profissional</title>
-    <meta
-      name="description"
-      content="Locução publicitária jovem, natural e versátil. Mais de 10 anos dando voz a grandes marcas e projetos de mídia."
-    />
+    <meta name="description" content="Locução publicitária jovem, natural e versátil. Mais de 10 anos dando voz a grandes marcas e projetos de mídia." />
+    <link rel="canonical" href="https://gustavosan.com/" />
     <meta property="og:title" content="Gustavo San - Locutor Profissional" />
-    <meta
-      property="og:description"
-      content="Há mais de 10 anos dando voz a grandes marcas, canais e projetos de mídia."
-    />
+    <meta property="og:description" content="Há mais de 10 anos dando voz a grandes marcas, canais e projetos de mídia." />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="pt_BR" />
-    <meta property="og:image" content="assets/brand-banner-restored.png" />
+    <meta property="og:site_name" content="Gustavo San" />
+    <meta property="og:url" content="https://gustavosan.com/" />
+    <!-- Crawlers de WhatsApp/Facebook/LinkedIn exigem URL absoluta na og:image. -->
+    <meta property="og:image" content="https://gustavosan.com/assets/og.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="632" />
+    <meta property="og:image:alt" content="Gustavo San - locutor profissional" />
     <meta name="twitter:card" content="summary_large_image" />
-    <link rel="icon" href="assets/brand-icons/favicon-turquoise-large.png" />
-    <link rel="apple-touch-icon" href="assets/brand-icons/favicon-turquoise-large.png" />
+    <meta name="twitter:title" content="Gustavo San - Locutor Profissional" />
+    <meta name="twitter:description" content="Há mais de 10 anos dando voz a grandes marcas, canais e projetos de mídia." />
+    <meta name="twitter:image" content="https://gustavosan.com/assets/og.jpg" />
+    <link rel="icon" href="assets/brand-kit/icone-uso-cor.png" />
+    <link rel="apple-touch-icon" href="assets/brand-kit/icone-uso-cor.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Geist:wght@400;520;650;760&family=Manrope:wght@600;680;700&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="preload" as="image" href="assets/gustavo-san-cutout.webp" fetchpriority="high" />
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;520;650;760&family=Manrope:wght@600;680;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <main class="site-shell">
-      <header class="topbar">
-        <a class="brand-lockup" href="#inicio" aria-label="Gustavo San, início">
-          <img src="assets/brand-icons/monogram-turquoise.png" alt="" width="512" height="512" />
-        </a>
-        <div class="topbar-note">
-          <span class="status-dot" aria-hidden="true"></span>
-          Disponível para novos projetos
-        </div>
-        <div class="mobile-wordmark" aria-label="Gustavo San, Voice-over Talent">
-          <strong>Gustavo San</strong>
-          <span>Voice-over talent</span>
-        </div>
-        <a class="header-link" href="#trabalhos" aria-label="Ir para o portfólio">
-          <img src="assets/brand-icons/monogram-turquoise.png" alt="" width="512" height="512" />
-        </a>
-      </header>
-
       <section class="portfolio-grid" id="inicio">
         <div class="portrait-panel">
-          <img
-            src="assets/gustavo-san.jpg"
-            alt="Retrato profissional de Gustavo San"
-            width="1080"
-            height="1350"
-            class="portrait-image"
-          />
+          <div class="portrait-halo" aria-hidden="true"></div>
+          <img src="assets/gustavo-san-cutout.webp" alt="Retrato profissional de Gustavo San" width="1122" height="1402" fetchpriority="high" decoding="async" class="portrait-image" />
           <div class="portrait-shade"></div>
-          <div class="portrait-caption">
-            <span>São Paulo · Brasil</span>
-            <span>PT-BR · Neutro / Paulista</span>
-          </div>
         </div>
 
         <div class="content-panel">
           <div class="ambient-video" aria-hidden="true">
-            <video autoplay loop muted playsinline preload="metadata">
-              <source src="assets/gustavo-ambient.mp4" type="video/mp4" />
-            </video>
+            <video autoplay loop muted playsinline preload="metadata" disablepictureinpicture disableremoteplayback tabindex="-1"><source src="assets/gustavo-ambient.mp4" type="video/mp4" /></video>
           </div>
+
           <div class="hero-area">
             <section class="hero-copy" aria-labelledby="hero-title">
-              <p class="eyebrow">Locutor profissional · Voz publicitária</p>
-              <h1 id="hero-title">Gustavo <span>San.</span></h1>
-              <p class="intro">
-                Há mais de 10 anos dando voz a grandes marcas, canais e projetos de mídia.
-              </p>
-              <div class="service-line" aria-label="Diferenciais">
-                <span>Jovem & natural</span>
-                <span>Entrega ágil</span>
-                <span>Estúdio próprio</span>
-              </div>
-              <div class="hero-actions">
-                <a
-                  class="primary-cta"
-                  href="https://wa.me/5511963672648?text=Ol%C3%A1%2C%20Gustavo!%20Quero%20conversar%20sobre%20um%20projeto%20de%20locu%C3%A7%C3%A3o."
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <img class="network-logo" src="assets/social/whatsapp.svg" alt="" />
-                  Vamos falar do seu projeto
-                  <span aria-hidden="true">↗</span>
-                </a>
-                <nav class="social-links" aria-label="Redes e contato">
-                  <a
-                    href="https://www.instagram.com/eugustavosan/"
-                    target="_blank"
-                    rel="noreferrer"
-                    aria-label="Instagram de Gustavo San"
-                  >
-                    <img class="network-logo" src="assets/social/instagram.svg" alt="" />
-                  </a>
-                  <a
-                    href="https://br.linkedin.com/in/gustavo-san-016079249"
-                    target="_blank"
-                    rel="noreferrer"
-                    aria-label="LinkedIn de Gustavo San"
-                  >
-                    <img class="network-logo" src="assets/social/linkedin.svg" alt="" />
-                  </a>
-                  <a href="mailto:contato@gustavosan.com?subject=Projeto%20de%20locu%C3%A7%C3%A3o" aria-label="Enviar e-mail para Gustavo San">
-                    <span class="mail-icon" aria-hidden="true"></span>
-                  </a>
-                </nav>
-              </div>
+              <h1 id="hero-title" class="hero-logo-heading"><img class="hero-original-logo" src="assets/brand-kit/logo-hor-padrao-negativo.png" alt="Gustavo San — Voice-over talent" /></h1>
+              <p class="intro">Há mais de 10 anos dando voz a grandes marcas, canais e projetos de mídia.</p>
+              <section class="brands-section" aria-labelledby="brands-title">
+                <div class="section-heading"><h2 id="brands-title">Marcas que já usaram minha voz</h2></div>
+                <div class="brand-row is-visible" id="brand-row" aria-live="off"></div>
+              </section>
             </section>
 
-            <section class="brands-section" aria-labelledby="brands-title">
-              <div class="section-heading">
-                <h2 id="brands-title">Marcas que já usaram minha voz</h2>
-              </div>
-              <div class="brand-row is-visible" id="brand-row" aria-live="off"></div>
-            </section>
+            <aside class="hero-side">
+              <a class="primary-cta" href="https://wa.me/5511963672648?text=Ol%C3%A1%2C%20Gustavo!%20Quero%20conversar%20sobre%20um%20projeto%20de%20locu%C3%A7%C3%A3o." target="_blank" rel="noreferrer">
+                <img class="network-logo" src="assets/social/whatsapp.svg" alt="" />
+                Vamos falar do seu projeto <span aria-hidden="true">↗</span>
+              </a>
+            </aside>
           </div>
 
           <section class="work-section" id="trabalhos" aria-labelledby="work-title">
             <div class="work-header">
-              <div>
-                <p class="section-kicker">Portfólio selecionado</p>
-                <h2 id="work-title">Conheça meu trabalho</h2>
-              </div>
+              <h2 id="work-title">Conheça meu trabalho</h2>
+              <p class="work-subtitle">Áudios e vídeos</p>
             </div>
 
-            <div class="work-layout">
-              <div class="work-list" id="work-list" aria-label="Trabalhos em áudio e vídeo"></div>
-
-              <div class="audio-player" id="audio-player">
-                <audio id="audio" preload="metadata"></audio>
-                <button type="button" class="play-button" id="play-button" aria-label="Reproduzir áudio">
-                  <span class="play-shape" aria-hidden="true"></span>
-                </button>
-                <div class="player-main">
-                  <p class="player-overline">Em destaque · Áudio</p>
-                  <div class="player-title">
-                    <span id="player-title">Demo Reel 2026</span>
-                    <div class="volume-control">
-                      <button type="button" class="volume-button" id="volume-button" aria-label="Ajustar volume" aria-expanded="false">
-                        <span class="volume-icon" aria-hidden="true"></span>
-                      </button>
-                      <div class="volume-popover" id="volume-popover" hidden>
-                        <span class="volume-value" id="volume-value" aria-hidden="true">85%</span>
-                        <input class="volume-slider" id="volume-slider" aria-label="Volume" type="range" min="0" max="1" step="0.01" value="0.85" />
-                      </div>
-                    </div>
-                  </div>
-                  <p class="player-subtitle" id="player-subtitle">Seleção publicitária</p>
-                  <input class="audio-seek" id="audio-seek" aria-label="Posição do áudio" type="range" min="0" max="1" step="0.1" value="0" />
-                  <div class="player-time">
-                    <span id="current-time">0:00</span>
-                    <span id="duration">0:00</span>
+            <div class="media-catalog">
+              <section class="media-library audio-library" aria-labelledby="audio-title">
+                <div class="library-heading">
+                  <h3 id="audio-title">Áudios</h3>
+                  <div class="audio-volume" aria-label="Volume geral dos áudios">
+                    <button type="button" id="global-volume-button" aria-label="Silenciar áudios"></button>
+                    <input id="global-volume" type="range" min="0" max="1" step="0.01" value="0.85" aria-label="Volume geral" />
+                    <span id="global-volume-value">85%</span>
                   </div>
                 </div>
-              </div>
-
-              <div class="video-frame" id="video-frame" hidden>
-                <iframe
-                  id="video-iframe"
-                  title="Trabalho em vídeo"
-                  loading="lazy"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen
-                ></iframe>
-              </div>
+                <div class="audio-grid media-scroll" id="audio-grid"></div>
+              </section>
+              <section class="media-library video-library" aria-labelledby="video-title">
+                <div class="library-heading"><h3 id="video-title">Vídeos</h3><span>Campanhas selecionadas</span></div>
+                <div class="video-grid media-scroll" id="video-grid"></div>
+              </section>
             </div>
           </section>
 
           <footer class="micro-footer">
             <span>© <span id="year"></span> Gustavo San</span>
-            <div class="studio-credit">
-              <span>Site desenvolvido por</span>
-              <img src="assets/master-digital-white.png" alt="Master Digital" />
-            </div>
+            <nav class="social-links footer-socials" aria-label="Redes e contato">
+              <a href="https://www.instagram.com/eugustavosan/" target="_blank" rel="noreferrer" aria-label="Instagram de Gustavo San"><img class="network-logo" src="assets/social/instagram.svg" alt="" /></a>
+              <a href="https://br.linkedin.com/in/gustavo-san-016079249" target="_blank" rel="noreferrer" aria-label="LinkedIn de Gustavo San"><img class="network-logo" src="assets/social/linkedin.svg" alt="" /></a>
+              <a href="mailto:contato@gustavosan.com?subject=Projeto%20de%20locu%C3%A7%C3%A3o" aria-label="Enviar e-mail para Gustavo San"><span class="mail-icon" aria-hidden="true"></span></a>
+            </nav>
+            <div class="studio-credit"><span>Site desenvolvido por</span><img src="assets/master-digital-white.png" alt="Master Digital" width="480" height="139" loading="lazy" decoding="async" /></div>
           </footer>
         </div>
       </section>
 
       <nav class="mobile-dock" aria-label="Contato rápido">
-        <a
-          href="https://wa.me/5511963672648?text=Ol%C3%A1%2C%20Gustavo!%20Quero%20conversar%20sobre%20um%20projeto%20de%20locu%C3%A7%C3%A3o."
-          target="_blank"
-          rel="noreferrer"
-        >
-          <img class="network-logo" src="assets/social/whatsapp.svg" alt="" /> WhatsApp
-        </a>
-        <a href="https://www.instagram.com/eugustavosan/" target="_blank" rel="noreferrer" aria-label="Instagram">
-          <img class="network-logo" src="assets/social/instagram.svg" alt="" />
-        </a>
-        <a href="https://br.linkedin.com/in/gustavo-san-016079249" target="_blank" rel="noreferrer" aria-label="LinkedIn">
-          <img class="network-logo" src="assets/social/linkedin.svg" alt="" />
-        </a>
-        <a href="mailto:contato@gustavosan.com?subject=Projeto%20de%20locu%C3%A7%C3%A3o" aria-label="E-mail">
-          <span class="mail-icon" aria-hidden="true"></span>
-        </a>
+        <a href="https://wa.me/5511963672648?text=Ol%C3%A1%2C%20Gustavo!%20Quero%20conversar%20sobre%20um%20projeto%20de%20locu%C3%A7%C3%A3o." target="_blank" rel="noreferrer"><img class="network-logo" src="assets/social/whatsapp.svg" alt="" /> WhatsApp</a>
+        <a href="https://www.instagram.com/eugustavosan/" target="_blank" rel="noreferrer" aria-label="Instagram"><img class="network-logo" src="assets/social/instagram.svg" alt="" /></a>
+        <a href="https://br.linkedin.com/in/gustavo-san-016079249" target="_blank" rel="noreferrer" aria-label="LinkedIn"><img class="network-logo" src="assets/social/linkedin.svg" alt="" /></a>
+        <a href="mailto:contato@gustavosan.com?subject=Projeto%20de%20locu%C3%A7%C3%A3o" aria-label="E-mail"><span class="mail-icon" aria-hidden="true"></span></a>
       </nav>
     </main>
-
     <script src="script.js"></script>
   </body>
 </html>
