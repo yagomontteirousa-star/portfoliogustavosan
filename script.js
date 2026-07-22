@@ -90,8 +90,14 @@ function renderBrands() {
     pill.appendChild(logo);
     brandRow.appendChild(pill);
   }
+  // Última página ancorada ao fim da lista: como 17 marcas não dividem por 4,
+  // a última janela mostraria brands[16, 0, 1, 2] — repetindo as três primeiras
+  // logo depois de mostrá-las. Ancorando o início em (total - count), a última
+  // página passa a exibir as últimas 4 marcas, sem voltar para o começo. O
+  // start nunca ultrapassa (total - count), então dispensa o módulo de volta.
+  const start = Math.min(brandPage * count, Math.max(0, brands.length - count));
   for (let index = 0; index < count; index += 1) {
-    const brand = brands[(brandPage * count + index) % brands.length];
+    const brand = brands[start + index];
     const pill = brandRow.children[index];
     const logo = pill.firstElementChild;
     pill.title = brand.name;
