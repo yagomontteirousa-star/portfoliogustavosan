@@ -2072,10 +2072,14 @@ a {
    cortava 93px de cada lado. Alargando a caixa e deslocando o enquadramento
    para a direita, a perda do lado direito cai bastante e a sobra passa a ser
    do lado esquerdo, que sangra para fora da tela de propósito. */
-.portrait-image {
-  right: -10%;
-  width: 120%;
-  object-position: 76% bottom;
+/* Só no desktop. No mobile a foto usa object-fit: contain e aparece inteira —
+   aplicar este reenquadramento lá cortava o lado esquerdo. */
+@media (min-width: 901px) {
+  .portrait-image {
+    right: -10%;
+    width: 120%;
+    object-position: 76% bottom;
+  }
 }
 
 /* --- 3. Ritmo vertical do hero --------------------------------------------
