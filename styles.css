@@ -2337,3 +2337,13 @@ body.video-modal-open {
   .hero-side {
     padding: 0;
   }}
+/* Foto no mobile: a imagem de origem já vem cortada nos ombros, nas duas
+   laterais. Com o painel mais largo que a proporção da foto sobrava fundo dos
+   lados e esse corte aparecia dentro do quadro. Igualando a altura do painel à
+   proporção da foto (1:0,8), ela passa a ocupar a largura toda e as bordas
+   cortadas caem fora da tela — lendo como sangria, não como recorte. */
+@media (max-width: 700px) {
+  .portrait-panel {
+    height: clamp(410px, 128vw, 550px);
+  }
+}
