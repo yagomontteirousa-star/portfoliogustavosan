@@ -2499,7 +2499,9 @@ body.video-modal-open {
 
   .hero-copy .brands-section {
     width: clamp(420px, 21vw, 560px);
-    margin-left: clamp(10px, 1vw, 18px);
+    /* Conjunto de marcas deslocado à direita. O piso baixo (24px) evita que o
+       deslocamento aperte a lateral em telas menores; escala com a viewport. */
+    margin-left: clamp(24px, 3vw, 48px);
   }
 
   .brand-pill {
