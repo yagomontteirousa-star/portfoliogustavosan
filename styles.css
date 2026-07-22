@@ -2347,3 +2347,99 @@ body.video-modal-open {
     height: clamp(410px, 128vw, 550px);
   }
 }
+
+/* ==========================================================================
+   Padronização de marca e ajuste do carrossel.
+   ========================================================================== */
+
+/* Tom único da identidade.
+   O --accent (#68b8b3) já era exatamente o turquesa do ícone na logo do título
+   — medido pixel a pixel. Quem destoava era o --accent-bright (#01bab4), que
+   é o tom do monograma, mais frio e saturado. Trocado por uma versão clara do
+   MESMO matiz (H=176), para os estados de hover continuarem tendo destaque
+   sem virar outra cor. */
+:root {
+  --accent-bright: #89dad5;
+}
+
+/* O play dos áudios estava com 8% de transparência: sobre o card escuro isso
+   escurecia o turquesa e ele lia como um tom diferente do resto. Agora é o
+   tom da marca, cheio. */
+.catalog-play {
+  background: var(--accent);
+}
+
+/* 5 balões no desktop: a faixa precisa acompanhar para os logos não
+   espremerem. Cada balão mantém a mesma largura útil de antes. */
+@media (min-width: 901px) {
+  .hero-copy .brands-section {
+    width: min(100%, 620px);
+  }
+
+  .brand-row {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+}
+
+/* ==========================================================================
+   Grade de áudios: 4 por fila, e fim do scroll aninhado no mobile.
+   ========================================================================== */
+
+/* Desktop: 4 colunas x 2 filas visíveis = 8 áudios por vez.
+   O quadrado do card é dimensionado pela altura da fila; com 4 colunas a
+   coluna fica mais estreita que essa altura, então o max-width impede que ele
+   estoure para fora do card. */
+@media (min-width: 901px) {
+  .audio-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .audio-visual {
+    max-width: 100%;
+  }
+}
+
+/* Mobile: o balão de trabalhos tinha altura fixa com scroll próprio dentro.
+   Rolar em cima dele consumia o gesto e a página não andava — era o conflito.
+   Agora as bibliotecas crescem com o conteúdo e só existe UM scroll: o da
+   página. Nada de scroll dentro de scroll. */
+@media (max-width: 900px) {
+  .media-library,
+  .video-library {
+    height: auto;
+    min-height: 0;
+  }
+
+  .media-scroll {
+    max-height: none;
+    overflow: visible;
+    overscroll-behavior: auto;
+    touch-action: auto;
+  }
+
+  .audio-grid,
+  .video-grid {
+    grid-auto-rows: auto;
+  }
+
+  .work-section {
+    overflow: visible;
+  }
+
+  .audio-visual {
+    width: 100%;
+    height: auto;
+    max-width: none;
+    aspect-ratio: 1;
+  }
+
+  .video-thumb {
+    aspect-ratio: 16 / 9;
+  }
+}
+
+/* O wordmark da Cinemark tem proporção 9,3:1 — com a largura padrão ficava
+   fino demais ao lado dos outros. Ganha um pouco mais de largura útil. */
+.brand-logo.ultra-wide {
+  max-width: 92px;
+}

@@ -11,16 +11,21 @@ const brands = [
   { name: "Claro", logo: "assets/brands/claro-wordmark.svg", className: "wide" },
   { name: "Disney Pixar", logo: "assets/brands/disney-pixar.png" },
   { name: "LATAM Airlines", logo: "assets/brands/latam-airlines.svg", className: "wide" },
+  { name: "Cinemark", logo: "assets/brands/cinemark.png", className: "wide ultra-wide" },
+  { name: "Smart Fit", logo: "assets/brands/smart-fit.png", className: "wide" },
+  { name: "BRDE", logo: "assets/brands/brde.png", className: "wide" },
+  { name: "Hapvida", logo: "assets/brands/hapvida.png", className: "wide" },
+  { name: "Sicredi", logo: "assets/brands/sicredi.png", className: "wide" },
 ];
 
 const audioWorks = [
-  { title: "Demo Reel 2026", brand: "Gustavo San", src: "assets/demo-gustavo-san.mp3", logo: "assets/brand-kit/icone-uso-cor.png" },
+  { title: "Demo Reel 2026", brand: "Gustavo San", src: "assets/demo-gustavo-san.mp3", logo: "assets/brand-kit/brand-icon.png" },
   { title: "Brasil com S", brand: "Som Livre", src: "assets/som-livre-brasil-com-s.mp3", logo: "assets/brands/som-livre.png" },
   { title: "Zappy", brand: "Zappy", src: "assets/zappy-gustavo-san.mp3", mark: "ZAPPY" },
   { title: "Nova Bank", brand: "Nova Bank", src: "assets/nova-bank-gustavo-san.mp3", mark: "NOVA" },
   { title: "Shopline", brand: "Shopline", src: "assets/shopline-gustavo-san.mp3", mark: "SHOPLINE" },
   { title: "Três Corações", brand: "Três Corações", src: "assets/tres-coracoes-gustavo-san.mp3", mark: "3 CORAÇÕES" },
-  { title: "Reel comercial", brand: "Voz publicitária", src: "assets/demo-gustavo-san.mp3", logo: "assets/brand-kit/icone-uso-cor.png" },
+  { title: "Reel comercial", brand: "Voz publicitária", src: "assets/demo-gustavo-san.mp3", logo: "assets/brand-kit/brand-icon.png" },
   { title: "Reel institucional", brand: "Tom institucional", src: "assets/nova-bank-gustavo-san.mp3", mark: "INSTITUCIONAL" },
   { title: "Reel promocional", brand: "Voz de varejo", src: "assets/shopline-gustavo-san.mp3", mark: "VAREJO" },
 ];
@@ -69,7 +74,7 @@ const compactQuery = window.matchMedia("(max-width: 900px)");
 
 function getBrandCount() {
   if (narrowQuery.matches) return 2;
-  return compactQuery.matches ? 3 : 4;
+  return compactQuery.matches ? 3 : 5;
 }
 
 function renderBrands() {
