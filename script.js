@@ -30,7 +30,9 @@ const videoWorks = [
   { title: "Identidade sonora", videoId: "APFnqweo7Uo" },
   { title: "Campanha digital", videoId: "NGkMK8iXRyc" },
   { title: "Varejo & promoção", videoId: "FK1mtd7BYc8" },
-  { title: "Bastidores em estúdio", src: "assets/gustavo-ambient.mp4", thumbnail: "assets/gustavo-san-cutout.webp" },
+  // Arquivo separado do fundo ambiente: este mantém a faixa de áudio e a
+  // resolução original, e só é baixado quando o card é clicado.
+  { title: "Bastidores em estúdio", src: "assets/gustavo-bastidores.mp4", thumbnail: "assets/gustavo-san-cutout.webp" },
 ];
 
 const brandRow = document.querySelector("#brand-row");
