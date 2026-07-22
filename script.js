@@ -44,7 +44,6 @@ const globalVolumeValue = document.querySelector("#global-volume-value");
 const ambientVideo = document.querySelector(".ambient-video video");
 const audioElements = [];
 const audioControls = [];
-const videoCards = [];
 let brandPage = 0;
 let playingAudio = null;
 
@@ -221,23 +220,116 @@ function renderAudioCatalog() {
   });
 }
 
-// Devolve um card de vídeo ao estado de miniatura, encerrando o player que
-// estava aberto nele (iframe do YouTube ou <video> local).
-function closeVideoCard(entry) {
-  if (!entry || !entry.open) return;
-  entry.thumb.replaceChildren(entry.image, entry.play);
-  entry.open = false;
+/* ---------------------------------------------------------------------------
+   Modal dos vídeos de trabalho.
+
+   Antes o player era injetado dentro do próprio card: o espaço era pequeno
+   demais para os controles, e o YouTube, num iframe apertado, mostrava o botão
+   grande de play em vez de iniciar sozinho — daí a sensação de "dois cliques".
+   Numa janela dedicada o player inicia no primeiro clique e os controles
+   nativos (play/pause, volume, tela cheia) aparecem com folga.
+--------------------------------------------------------------------------- */
+let videoModal = null;
+let lastFocusedBeforeModal = null;
+
+function buildVideoModal() {
+  const modal = document.createElement("div");
+  const backdrop = document.createElement("div");
+  const dialog = document.createElement("div");
+  const frame = document.createElement("div");
+  const bar = document.createElement("div");
+  const title = document.createElement("p");
+  const close = document.createElement("button");
+  const hint = document.createElement("p");
+
+  modal.className = "video-modal";
+  modal.hidden = true;
+  backdrop.className = "video-modal-backdrop";
+  dialog.className = "video-modal-dialog";
+  dialog.setAttribute("role", "dialog");
+  dialog.setAttribute("aria-modal", "true");
+  frame.className = "video-modal-frame";
+  bar.className = "video-modal-bar";
+  title.className = "video-modal-title";
+  hint.className = "video-modal-hint";
+  hint.textContent = "Esc ou clique fora para fechar";
+  close.className = "video-modal-close";
+  close.type = "button";
+  close.innerHTML = '<svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg> Fechar';
+
+  bar.append(title, hint, close);
+  dialog.append(frame, bar);
+  modal.append(backdrop, dialog);
+  document.body.appendChild(modal);
+
+  // Fechar: botão, clique no fundo e Esc.
+  close.addEventListener("click", closeVideoModal);
+  backdrop.addEventListener("click", closeVideoModal);
+  modal.addEventListener("click", (event) => {
+    if (event.target === modal) closeVideoModal();
+  });
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && !modal.hidden) closeVideoModal();
+  });
+
+  return { modal, dialog, frame, title, close };
 }
 
-function closeOtherVideoCards(current) {
-  videoCards.forEach((entry) => {
-    if (entry !== current) closeVideoCard(entry);
+function openVideoModal(work) {
+  if (!videoModal) videoModal = buildVideoModal();
+  lastFocusedBeforeModal = document.activeElement;
+
+  // Nada mais toca junto: áudios, o vídeo do banner e qualquer player anterior.
+  audioElements.forEach((audio, index) => {
+    audio.pause();
+    resetAudioControl(index);
   });
+  playingAudio = null;
+  pauseAmbientForModal(true);
+
+  videoModal.title.textContent = work.title;
+  videoModal.dialog.setAttribute("aria-label", `Vídeo: ${work.title}`);
+
+  if (work.videoId) {
+    const iframe = document.createElement("iframe");
+    // playsinline evita o player em tela cheia forçada no iOS; o gesto de
+    // clique que abriu o modal autoriza o autoplay.
+    iframe.src = `https://www.youtube-nocookie.com/embed/${work.videoId}?autoplay=1&rel=0&playsinline=1&modestbranding=1`;
+    iframe.title = work.title;
+    iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen";
+    iframe.allowFullscreen = true;
+    videoModal.frame.replaceChildren(iframe);
+  } else {
+    const video = document.createElement("video");
+    video.src = work.src;
+    video.controls = true;
+    video.playsInline = true;
+    video.preload = "metadata";
+    video.setAttribute("aria-label", work.title);
+    videoModal.frame.replaceChildren(video);
+    const started = video.play();
+    if (started && typeof started.catch === "function") started.catch(() => {});
+  }
+
+  videoModal.modal.hidden = false;
+  document.body.classList.add("video-modal-open");
+  videoModal.close.focus();
+}
+
+function closeVideoModal() {
+  if (!videoModal || videoModal.modal.hidden) return;
+  // Esvaziar o container destrói o player e encerra o download em andamento.
+  videoModal.frame.replaceChildren();
+  videoModal.modal.hidden = true;
+  document.body.classList.remove("video-modal-open");
+  pauseAmbientForModal(false);
+  if (lastFocusedBeforeModal && typeof lastFocusedBeforeModal.focus === "function") {
+    lastFocusedBeforeModal.focus();
+  }
 }
 
 function renderVideoCatalog() {
   videoGrid.replaceChildren();
-  videoCards.length = 0;
   videoWorks.forEach((work) => {
     const card = document.createElement("article");
     const thumb = document.createElement("div");
@@ -261,37 +353,19 @@ function renderVideoCatalog() {
     title.textContent = work.title;
     type.textContent = "Vídeo";
 
-    const entry = { thumb, image, play, open: false };
-    videoCards.push(entry);
-
-    play.addEventListener("click", () => {
-      audioElements.forEach((audio, index) => {
-        audio.pause();
-        resetAudioControl(index);
-      });
-      playingAudio = null;
-      // Só um vídeo por vez: antes ficavam vários iframes/players tocando juntos.
-      closeOtherVideoCards(entry);
-
-      if (work.videoId) {
-        const iframe = document.createElement("iframe");
-        iframe.src = `https://www.youtube.com/embed/${work.videoId}?autoplay=1&rel=0`;
-        iframe.title = work.title;
-        iframe.loading = "lazy";
-        iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
-        iframe.allowFullscreen = true;
-        thumb.replaceChildren(iframe);
-      } else {
-        const video = document.createElement("video");
-        video.src = work.src;
-        video.autoplay = true;
-        video.controls = true;
-        video.playsInline = true;
-        video.preload = "metadata";
-        video.setAttribute("aria-label", work.title);
-        thumb.replaceChildren(video);
-      }
-      entry.open = true;
+    // O card inteiro abre o vídeo — alvo de toque muito maior que o botão de
+    // 34px, o que resolve o "não pega no primeiro clique" no celular.
+    const open = (event) => {
+      event.preventDefault();
+      openVideoModal(work);
+    };
+    play.addEventListener("click", open);
+    card.addEventListener("click", open);
+    card.tabIndex = 0;
+    card.setAttribute("role", "button");
+    card.setAttribute("aria-label", `Reproduzir vídeo: ${work.title}`);
+    card.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" || event.key === " ") open(event);
     });
 
     copy.append(title, type);
@@ -356,6 +430,16 @@ function stopBrandRotation() {
 // O vídeo ambiente é decorativo: não faz sentido decodificar 30 quadros por
 // segundo quando ele está fora da tela ou a aba está em segundo plano. É esse
 // trabalho contínuo que atrapalhava o scroll no mobile.
+let syncAmbientVideo = null;
+let ambientHeldByModal = false;
+
+// Enquanto um vídeo de trabalho toca, o banner para: dois decodificadores
+// simultâneos era parte do peso.
+function pauseAmbientForModal(hold) {
+  ambientHeldByModal = hold;
+  if (syncAmbientVideo) syncAmbientVideo();
+}
+
 function setupAmbientVideo() {
   if (!ambientVideo) return;
   ambientVideo.disablePictureInPicture = true;
@@ -367,7 +451,7 @@ function setupAmbientVideo() {
   let isVisible = true;
 
   const sync = () => {
-    const shouldPlay = isVisible && !document.hidden && !reduceMotion.matches;
+    const shouldPlay = isVisible && !document.hidden && !reduceMotion.matches && !ambientHeldByModal;
     if (shouldPlay) {
       if (ambientVideo.paused) {
         const started = ambientVideo.play();
@@ -390,6 +474,7 @@ function setupAmbientVideo() {
   if (typeof reduceMotion.addEventListener === "function") {
     reduceMotion.addEventListener("change", sync);
   }
+  syncAmbientVideo = sync;
   sync();
 }
 
