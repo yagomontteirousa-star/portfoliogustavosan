@@ -371,12 +371,11 @@ function renderVideoCatalog() {
       openVideoModal(work);
     };
     play.addEventListener("click", open);
-    card.addEventListener("click", open);
-    card.tabIndex = 0;
-    card.setAttribute("role", "button");
-    card.setAttribute("aria-label", `Reproduzir vídeo: ${work.title}`);
-    card.addEventListener("keydown", (event) => {
-      if (event.key === "Enter" || event.key === " ") open(event);
+    card.addEventListener("click", (event) => {
+      // O botão de play já abre o modal. Assim evitamos disparar duas vezes
+      // pelo evento que sobe até o card, mantendo o restante do cartão clicável.
+      if (event.target.closest("button")) return;
+      open(event);
     });
 
     copy.append(title, type);

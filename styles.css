@@ -2541,6 +2541,21 @@ body.video-modal-open {
   }
 }
 
+/* The brand carousel starts at the left edge of the hero copy. */
+.hero-copy .brands-section {
+  margin-right: auto;
+}
+
+.hero-copy .brand-row {
+  margin-left: 0;
+  justify-content: start;
+  justify-items: start;
+}
+
+.brand-pill {
+  justify-self: start;
+}
+
 /* Em telas baixas o bloco antigo apertava demais; agora as próprias clamps
    acima já dão conta, então aqui só garanto que a logo não volte a crescer. */
 @media (min-width: 901px) and (max-height: 820px) {
