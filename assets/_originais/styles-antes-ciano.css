@@ -3,14 +3,13 @@
   --ink-soft: #171a1b;
   --paper: #ffffff;
   --paper-soft: #cbd0d1;
-  --line: rgb(var(--accent-rgb) / 0.16);
-  --accent-rgb: 0 185 180;
-  --accent: rgb(var(--accent-rgb));
-  --accent-bright: #38c8c4;
+  --line: rgba(104, 184, 179, 0.16);
+  --accent: #68b8b3;
+  --accent-bright: #01bab4;
   --brand-graphite: #2d3031;
   --brand-charcoal: #282c2f;
   --glass: rgba(45, 48, 49, 0.28);
-  --glass-line: rgb(var(--accent-rgb) / 0.2);
+  --glass-line: rgba(104, 184, 179, 0.2);
 }
 
 * {
@@ -80,7 +79,7 @@ a {
   z-index: -1;
   inset: 12% -18% 8% 8%;
   content: "";
-  background: radial-gradient(ellipse at 55% 48%, rgb(var(--accent-rgb) / 0.14), transparent 63%);
+  background: radial-gradient(ellipse at 55% 48%, rgba(104, 184, 179, 0.14), transparent 63%);
   filter: blur(22px);
 }
 
@@ -220,9 +219,9 @@ a {
 .hero-side .primary-cta {
   width: 100%;
   justify-content: center;
-  border: 1px solid rgb(var(--accent-rgb) / 0.42);
-  background: rgb(var(--accent-rgb) / 0.88);
-  box-shadow: 0 12px 34px rgb(var(--accent-rgb) / 0.13);
+  border: 1px solid rgba(104, 184, 179, 0.42);
+  background: rgba(104, 184, 179, 0.88);
+  box-shadow: 0 12px 34px rgba(104, 184, 179, 0.13);
 }
 
 .primary-cta svg:last-child {
@@ -232,7 +231,7 @@ a {
 .primary-cta:hover {
   transform: translateY(-2px);
   background: var(--accent-bright);
-  box-shadow: 0 12px 30px rgb(var(--accent-rgb) / 0.18);
+  box-shadow: 0 12px 30px rgba(104, 184, 179, 0.18);
 }
 
 .network-logo {
@@ -268,8 +267,8 @@ a {
 
 .social-links a:hover {
   color: white;
-  border-color: rgb(var(--accent-rgb) / 0.65);
-  background: rgb(var(--accent-rgb) / 0.12);
+  border-color: rgba(104, 184, 179, 0.65);
+  background: rgba(104, 184, 179, 0.12);
   transform: translateY(-2px);
 }
 
@@ -333,7 +332,7 @@ a {
   border: 1px solid var(--glass-line);
   border-radius: 16px;
   background: linear-gradient(145deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.025));
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 8px 24px rgba(0, 0, 0, 0.12), 0 0 22px rgb(var(--accent-rgb) / 0.1);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 8px 24px rgba(0, 0, 0, 0.12), 0 0 22px rgba(104, 184, 179, 0.1);
   backdrop-filter: blur(14px);
 }
 
@@ -374,9 +373,9 @@ a {
   min-height: 0;
   padding: clamp(17px, 1.8vw, 24px);
   overflow: hidden;
-  border: 1px solid rgb(var(--accent-rgb) / 0.26);
+  border: 1px solid rgba(104, 184, 179, 0.26);
   border-radius: 20px;
-  background: linear-gradient(145deg, rgb(var(--accent-rgb) / 0.055), rgba(255, 255, 255, 0.018) 48%);
+  background: linear-gradient(145deg, rgba(104, 184, 179, 0.055), rgba(255, 255, 255, 0.018) 48%);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.055), 0 20px 60px rgba(0, 0, 0, 0.14);
   backdrop-filter: blur(18px);
 }
@@ -405,8 +404,8 @@ a {
 
 .volume-button:hover,
 .volume-button[aria-expanded="true"] {
-  border-color: rgb(var(--accent-rgb) / 0.8);
-  background: rgb(var(--accent-rgb) / 0.18);
+  border-color: rgba(104, 184, 179, 0.8);
+  background: rgba(104, 184, 179, 0.18);
   transform: translateY(-1px);
 }
 
@@ -754,8 +753,8 @@ a {
   inset: 7% -2% 2% -5%;
   opacity: 0.64;
   background:
-    radial-gradient(ellipse 58% 44% at 31% 79%, rgb(var(--accent-rgb) / 0.085), rgba(40, 44, 47, 0.05) 50%, transparent 76%),
-    radial-gradient(ellipse 68% 70% at 55% 47%, rgb(var(--accent-rgb) / 0.115), rgb(var(--accent-rgb) / 0.025) 48%, transparent 75%);
+    radial-gradient(ellipse 58% 44% at 31% 79%, rgba(104, 184, 179, 0.085), rgba(40, 44, 47, 0.05) 50%, transparent 76%),
+    radial-gradient(ellipse 68% 70% at 55% 47%, rgba(104, 184, 179, 0.115), rgba(104, 184, 179, 0.025) 48%, transparent 75%);
   filter: blur(42px);
 }
 
@@ -768,7 +767,7 @@ a {
   height: 36%;
   content: "";
   border-radius: 50%;
-  background: radial-gradient(ellipse at 34% 38%, rgb(var(--accent-rgb) / 0.075), rgba(40, 44, 47, 0.12) 43%, transparent 74%);
+  background: radial-gradient(ellipse at 34% 38%, rgba(104, 184, 179, 0.075), rgba(40, 44, 47, 0.12) 43%, transparent 74%);
   filter: blur(38px);
   pointer-events: none;
 }
@@ -813,8 +812,8 @@ a {
 }
 
 .work-section {
-  border-color: rgb(var(--accent-rgb) / 0.14);
-  border-left-color: rgb(var(--accent-rgb) / 0.055);
+  border-color: rgba(104, 184, 179, 0.14);
+  border-left-color: rgba(104, 184, 179, 0.055);
   background: linear-gradient(145deg, rgba(45, 48, 49, 0.49), rgba(23, 26, 27, 0.69) 52%);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.035), 0 20px 60px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(16px);
@@ -874,8 +873,8 @@ a {
 }
 
 .audio-volume button:hover {
-  border-color: rgb(var(--accent-rgb) / 0.5);
-  background: rgb(var(--accent-rgb) / 0.1);
+  border-color: rgba(104, 184, 179, 0.5);
+  background: rgba(104, 184, 179, 0.1);
   color: var(--accent-bright);
 }
 
@@ -900,7 +899,7 @@ a {
   border-radius: 50%;
   appearance: none;
   background: var(--accent-bright);
-  box-shadow: 0 0 0 3px rgb(var(--accent-rgb) / 0.13);
+  box-shadow: 0 0 0 3px rgba(104, 184, 179, 0.13);
 }
 
 .audio-volume > span {
@@ -1075,8 +1074,8 @@ a {
     bottom: -7%;
     height: 50%;
     background:
-      radial-gradient(ellipse 50% 44% at 78% 40%, rgb(var(--accent-rgb) / 0.068), rgba(40, 44, 47, 0.075) 48%, transparent 79%),
-      radial-gradient(ellipse 72% 54% at 38% 50%, rgb(var(--accent-rgb) / 0.05), rgba(40, 44, 47, 0.15) 50%, transparent 80%);
+      radial-gradient(ellipse 50% 44% at 78% 40%, rgba(104, 184, 179, 0.068), rgba(40, 44, 47, 0.075) 48%, transparent 79%),
+      radial-gradient(ellipse 72% 54% at 38% 50%, rgba(104, 184, 179, 0.05), rgba(40, 44, 47, 0.15) 50%, transparent 80%);
     filter: blur(44px);
   }
 
@@ -1326,7 +1325,7 @@ a {
   z-index: 0;
   inset: 10% 3% 7% 4%;
   border-radius: 48% 52% 44% 56%;
-  background: radial-gradient(ellipse at 54% 47%, rgb(var(--accent-rgb) / 0.2), rgb(var(--accent-rgb) / 0.055) 43%, transparent 72%);
+  background: radial-gradient(ellipse at 54% 47%, rgba(104, 184, 179, 0.2), rgba(104, 184, 179, 0.055) 43%, transparent 72%);
   filter: blur(26px);
   pointer-events: none;
 }
@@ -1488,7 +1487,7 @@ a {
   overflow-y: auto;
   overscroll-behavior: contain;
   touch-action: pan-y;
-  scrollbar-color: rgb(var(--accent-rgb) / 0.58) transparent;
+  scrollbar-color: rgba(104, 184, 179, 0.58) transparent;
   scrollbar-width: thin;
 }
 
@@ -1498,7 +1497,7 @@ a {
 
 .media-scroll::-webkit-scrollbar-thumb {
   border-radius: 999px;
-  background: rgb(var(--accent-rgb) / 0.58);
+  background: rgba(104, 184, 179, 0.58);
 }
 
 .audio-grid,
@@ -1550,7 +1549,7 @@ a {
   inset: 0;
   content: "";
   pointer-events: none;
-  background: linear-gradient(135deg, rgb(var(--accent-rgb) / 0.08), transparent 54%);
+  background: linear-gradient(135deg, rgba(104, 184, 179, 0.08), transparent 54%);
 }
 
 .audio-visual img {
@@ -1598,7 +1597,7 @@ a {
   place-items: center;
   border: 1px solid rgba(255, 255, 255, 0.16);
   border-radius: 50%;
-  background: rgb(var(--accent-rgb) / 0.92);
+  background: rgba(104, 184, 179, 0.92);
   color: #111516;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.24);
   cursor: pointer;
@@ -1611,8 +1610,8 @@ a {
 }
 
 .audio-card.is-playing .audio-visual {
-  border-color: rgb(var(--accent-rgb) / 0.62);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.07), 0 0 28px rgb(var(--accent-rgb) / 0.14);
+  border-color: rgba(104, 184, 179, 0.62);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.07), 0 0 28px rgba(104, 184, 179, 0.14);
 }
 
 .catalog-copy {
@@ -1819,10 +1818,10 @@ a {
 
 /* Finishing layer — keeps the final visual decisions together. */
 .work-section {
-  border-color: rgb(var(--accent-rgb) / 0.09);
-  border-left-color: rgb(var(--accent-rgb) / 0.02);
+  border-color: rgba(104, 184, 179, 0.09);
+  border-left-color: rgba(104, 184, 179, 0.02);
   background:
-    radial-gradient(ellipse 62% 80% at 8% 24%, rgb(var(--accent-rgb) / 0.05), transparent 68%),
+    radial-gradient(ellipse 62% 80% at 8% 24%, rgba(104, 184, 179, 0.05), transparent 68%),
     linear-gradient(145deg, rgba(45, 48, 49, 0.26), rgba(23, 26, 27, 0.46) 54%, rgba(9, 11, 12, 0.41));
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.02), 0 22px 68px rgba(0, 0, 0, 0.08);
   /* O vídeo ambiente fica exatamente atrás deste painel: cada quadro obriga o
@@ -1850,21 +1849,21 @@ a {
 .brand-pill:hover,
 .audio-card:hover .audio-visual,
 .video-card:hover .video-thumb {
-  border-color: rgb(var(--accent-rgb) / 0.28);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.045), 0 12px 30px rgba(0, 0, 0, 0.14), 0 0 24px rgb(var(--accent-rgb) / 0.07);
+  border-color: rgba(104, 184, 179, 0.28);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.045), 0 12px 30px rgba(0, 0, 0, 0.14), 0 0 24px rgba(104, 184, 179, 0.07);
 }
 
 @media (min-width: 901px) {
   .portfolio-grid {
-    background: radial-gradient(ellipse 28% 72% at 36% 52%, rgb(var(--accent-rgb) / 0.035), transparent 78%), var(--ink);
+    background: radial-gradient(ellipse 28% 72% at 36% 52%, rgba(104, 184, 179, 0.035), transparent 78%), var(--ink);
   }
 
   .portrait-halo {
     inset: 6% -8% -2% -7%;
     opacity: 0.54;
     background:
-      radial-gradient(ellipse 44% 38% at 73% 76%, rgb(var(--accent-rgb) / 0.11), rgba(40, 44, 47, 0.045) 50%, transparent 78%),
-      radial-gradient(ellipse 66% 70% at 54% 48%, rgb(var(--accent-rgb) / 0.105), rgb(var(--accent-rgb) / 0.018) 50%, transparent 78%);
+      radial-gradient(ellipse 44% 38% at 73% 76%, rgba(104, 184, 179, 0.11), rgba(40, 44, 47, 0.045) 50%, transparent 78%),
+      radial-gradient(ellipse 66% 70% at 54% 48%, rgba(104, 184, 179, 0.105), rgba(104, 184, 179, 0.018) 50%, transparent 78%);
     filter: blur(50px);
   }
 
@@ -1874,8 +1873,8 @@ a {
     left: -10%;
     height: 46%;
     background:
-      radial-gradient(ellipse 42% 46% at 75% 34%, rgb(var(--accent-rgb) / 0.075), rgba(45, 48, 49, 0.07) 46%, transparent 76%),
-      radial-gradient(ellipse 64% 54% at 35% 48%, rgb(var(--accent-rgb) / 0.055), rgba(45, 48, 49, 0.13) 48%, transparent 78%);
+      radial-gradient(ellipse 42% 46% at 75% 34%, rgba(104, 184, 179, 0.075), rgba(45, 48, 49, 0.07) 46%, transparent 76%),
+      radial-gradient(ellipse 64% 54% at 35% 48%, rgba(104, 184, 179, 0.055), rgba(45, 48, 49, 0.13) 48%, transparent 78%);
     filter: blur(42px);
   }
 
@@ -1910,7 +1909,7 @@ a {
     bottom: -8%;
     left: -9%;
     height: 40%;
-    background: radial-gradient(ellipse at 48% 34%, rgb(var(--accent-rgb) / 0.07), rgba(40, 44, 47, 0.1) 48%, transparent 76%);
+    background: radial-gradient(ellipse at 48% 34%, rgba(104, 184, 179, 0.07), rgba(40, 44, 47, 0.1) 48%, transparent 76%);
     filter: blur(36px);
   }
 
@@ -1920,7 +1919,7 @@ a {
 
   .work-section {
     background:
-      radial-gradient(ellipse 75% 42% at 12% 8%, rgb(var(--accent-rgb) / 0.05), transparent 70%),
+      radial-gradient(ellipse 75% 42% at 12% 8%, rgba(104, 184, 179, 0.05), transparent 70%),
       linear-gradient(155deg, rgba(45, 48, 49, 0.33), rgba(23, 26, 27, 0.53));
   }}
 
@@ -1931,8 +1930,8 @@ a {
     bottom: -7%;
     height: 50%;
     background:
-      radial-gradient(ellipse 50% 44% at 78% 40%, rgb(var(--accent-rgb) / 0.068), rgba(40, 44, 47, 0.075) 48%, transparent 79%),
-      radial-gradient(ellipse 72% 54% at 38% 50%, rgb(var(--accent-rgb) / 0.05), rgba(40, 44, 47, 0.15) 50%, transparent 80%);
+      radial-gradient(ellipse 50% 44% at 78% 40%, rgba(104, 184, 179, 0.068), rgba(40, 44, 47, 0.075) 48%, transparent 79%),
+      radial-gradient(ellipse 72% 54% at 38% 50%, rgba(104, 184, 179, 0.05), rgba(40, 44, 47, 0.15) 50%, transparent 80%);
     filter: blur(44px);
   }
 
@@ -1995,7 +1994,7 @@ a {
   height: auto;
   display: block;
   object-fit: contain;
-  filter: drop-shadow(0 10px 24px rgb(var(--accent-rgb) / 0.12));
+  filter: drop-shadow(0 10px 24px rgba(104, 184, 179, 0.12));
 }
 
 @media (min-width: 901px) and (max-height: 700px) {
@@ -2041,7 +2040,7 @@ a {
    mesma leitura visual com custo zero por quadro. */
 .work-section {
   background:
-    radial-gradient(ellipse 62% 80% at 8% 24%, rgb(var(--accent-rgb) / 0.05), transparent 68%),
+    radial-gradient(ellipse 62% 80% at 8% 24%, rgba(104, 184, 179, 0.05), transparent 68%),
     linear-gradient(145deg, rgba(45, 48, 49, 0.63), rgba(23, 26, 27, 0.79) 54%, rgba(9, 11, 12, 0.75));
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
@@ -2160,7 +2159,7 @@ a {
   width: 100%;
   aspect-ratio: 16 / 9;
   overflow: hidden;
-  border: 1px solid rgb(var(--accent-rgb) / 0.28);
+  border: 1px solid rgba(104, 184, 179, 0.28);
   border-radius: 16px;
   background: #050708;
   box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
@@ -2204,9 +2203,9 @@ a {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  border: 1px solid rgb(var(--accent-rgb) / 0.42);
+  border: 1px solid rgba(104, 184, 179, 0.42);
   border-radius: 999px;
-  background: rgb(var(--accent-rgb) / 0.14);
+  background: rgba(104, 184, 179, 0.14);
   color: var(--paper);
   font-size: 0.76rem;
   font-weight: 700;
@@ -2216,7 +2215,7 @@ a {
 
 .video-modal-close:hover {
   border-color: var(--accent);
-  background: rgb(var(--accent-rgb) / 0.26);
+  background: rgba(104, 184, 179, 0.26);
   transform: translateY(-1px);
 }
 
@@ -2354,13 +2353,13 @@ body.video-modal-open {
    ========================================================================== */
 
 /* Tom único da identidade.
-   O --accent (var(--accent)) já era exatamente o turquesa do ícone na logo do título
-   — medido pixel a pixel. Quem destoava era o --accent-bright (var(--accent-bright)), que
+   O --accent (#68b8b3) já era exatamente o turquesa do ícone na logo do título
+   — medido pixel a pixel. Quem destoava era o --accent-bright (#01bab4), que
    é o tom do monograma, mais frio e saturado. Trocado por uma versão clara do
    MESMO matiz (H=176), para os estados de hover continuarem tendo destaque
    sem virar outra cor. */
 :root {
-  --accent-bright: #38c8c4;
+  --accent-bright: #89dad5;
 }
 
 /* O play dos áudios estava com 8% de transparência: sobre o card escuro isso
@@ -2481,101 +2480,5 @@ body.video-modal-open {
     max-width: none;
     aspect-ratio: 1;
     justify-self: stretch;
-  }
-}
-
-/* ==========================================================================
-   Harmonia em telas menores.
-   O problema não era falta de espaço: era que logo, marcas e folgas estavam
-   travadas em pixels fixos. Quando o painel encolhia, elas não encolhiam junto
-   e passavam a ocupar quase o dobro da proporção. Medido: a logo ocupava 45,7%
-   do painel a 1280x800 contra 28,2% a 2560x1440, e o rodapé caía fora da tela.
-   Agora tudo escala com a viewport, mirando a mesma proporção do monitor grande.
-   ========================================================================== */
-@media (min-width: 901px) {
-  .hero-original-logo {
-    width: clamp(270px, 20vw, 500px);
-  }
-
-  .hero-copy .brands-section {
-    width: clamp(420px, 21vw, 560px);
-    margin-left: clamp(10px, 1vw, 18px);
-  }
-
-  .brand-pill {
-    height: clamp(44px, 3.7vh, 56px);
-  }
-
-  /* Folgas verticais proporcionais à altura da janela, em vez de px fixos. */
-  .hero-copy h1.hero-logo-heading {
-    margin-bottom: clamp(9px, 1.5vh, 17px);
-  }
-
-  .hero-copy .brands-section {
-    margin-top: clamp(12px, 2vh, 22px);
-  }
-
-  .section-heading {
-    margin-bottom: clamp(10px, 1.6vh, 18px);
-  }
-
-  .content-panel {
-    gap: clamp(12px, 1.5vh, 22px);
-  }
-
-  .intro {
-    font-size: clamp(0.88rem, 1.05vw, 1.06rem);
-  }
-
-  .work-section {
-    padding: clamp(14px, 1.5vw, 26px);
-  }
-}
-
-/* Em telas baixas o bloco antigo apertava demais; agora as próprias clamps
-   acima já dão conta, então aqui só garanto que a logo não volte a crescer. */
-@media (min-width: 901px) and (max-height: 820px) {
-  .hero-original-logo {
-    width: clamp(250px, 19vw, 400px);
-  }
-
-  .hero-copy h1.hero-logo-heading {
-    margin-bottom: clamp(8px, 1.3vh, 14px);
-  }
-
-  .hero-copy .brands-section {
-    margin-top: clamp(10px, 1.7vh, 18px);
-  }
-
-  .section-heading {
-    margin-bottom: clamp(9px, 1.4vh, 15px);
-  }
-}
-
-/* Com as filas de áudio em altura automática, o conteúdo passou a empurrar o
-   balão de trabalhos em vez de rolar dentro dele — o painel estourava a tela e
-   levava o rodapé junto. Estes min-height: 0 devolvem a capacidade de encolher
-   em cada nível do encaixe, então a grade volta a rolar e a altura fica presa
-   à viewport. */
-@media (min-width: 901px) {
-  .content-panel {
-    grid-template-rows: auto minmax(0, 1fr) auto;
-  }
-
-  .work-section,
-  .media-catalog,
-  .media-library,
-  .media-scroll {
-    min-height: 0;
-  }
-}
-
-/* O elo que faltava: como item de grid, o painel herda min-height: auto e se
-   recusa a encolher abaixo do próprio conteúdo — o height: 100% não vence isso.
-   Com min-height: 0 ele volta a respeitar a altura da tela e a linha de
-   trabalhos passa a receber só a sobra, rolando por dentro. */
-@media (min-width: 901px) {
-  .content-panel {
-    min-height: 0;
   }
 }

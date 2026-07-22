@@ -74,7 +74,7 @@ const compactQuery = window.matchMedia("(max-width: 900px)");
 
 function getBrandCount() {
   if (narrowQuery.matches) return 2;
-  return compactQuery.matches ? 3 : 5;
+  return compactQuery.matches ? 3 : 4;
 }
 
 function renderBrands() {
