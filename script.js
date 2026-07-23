@@ -24,7 +24,7 @@ const audioWorks = [
   { title: "Zappy", brand: "Zappy", src: "assets/zappy-gustavo-san.mp3", mark: "ZAPPY" },
   { title: "Nova Bank", brand: "Nova Bank", src: "assets/nova-bank-gustavo-san.mp3", mark: "NOVA" },
   { title: "Shopline", brand: "Shopline", src: "assets/shopline-gustavo-san.mp3", mark: "SHOPLINE" },
-  { title: "Três Corações", brand: "Três Corações", src: "assets/tres-coracoes-gustavo-san.mp3", mark: "3 CORAÇÕES" },
+  { title: "Três Corações", brand: "Três Corações", src: "assets/tres-coracoes-gustavo-san.mp3", logo: "assets/brands/tres-coracoes.png" },
   { title: "Reel comercial", brand: "Voz publicitária", src: "assets/demo-gustavo-san.mp3", logo: "assets/brand-kit/brand-icon.png" },
   { title: "Reel institucional", brand: "Tom institucional", src: "assets/nova-bank-gustavo-san.mp3", mark: "INSTITUCIONAL" },
   { title: "Reel promocional", brand: "Voz de varejo", src: "assets/shopline-gustavo-san.mp3", mark: "VAREJO" },
