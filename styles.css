@@ -2629,29 +2629,33 @@ body.video-modal-open {
 
 /* Calibração óptica individual: cada marca ocupa o mesmo peso visual dentro
    do balão, sem esticar a arte ou aproximá-la demais das bordas. */
-.brand-logo.brand-mercado-livre { max-width: 86px; height: 33px; }
-.brand-logo.brand-amazon-prime { max-width: 82px; height: 34px; }
-.brand-logo.brand-99food { max-width: 42px; height: 40px; }
-.brand-logo.brand-ifood { max-width: 72px; height: 34px; }
-.brand-logo.brand-99 { max-width: 49px; height: 35px; }
-.brand-logo.brand-som-livre { max-width: 40px; height: 39px; }
-.brand-logo.brand-claro { max-width: 88px; height: 32px; }
-.brand-logo.brand-disney-pixar { max-width: 102px; height: 22px; }
-.brand-logo.brand-latam { max-width: 104px; height: 24px; }
-.brand-logo.brand-cinemark { max-width: 108px; height: 18px; }
-.brand-logo.brand-smart-fit { max-width: 84px; height: 32px; }
-.brand-logo.brand-brde { max-width: 78px; height: 34px; }
-.brand-logo.brand-hapvida { max-width: 100px; height: 24px; }
-.brand-logo.brand-sicredi { max-width: 100px; height: 24px; }
+.brand-pill { padding: clamp(9px, 1.1vh, 12px) clamp(14px, 1.2vw, 16px); }
+.brand-logo { max-height: calc(100% - 3px); max-inline-size: calc(100% - 4px); }
+.brand-logo.brand-mercado-livre { max-width: 78px; height: 29px; }
+.brand-logo.brand-amazon-prime { max-width: 76px; height: 30px; }
+.brand-logo.brand-99food { max-width: 38px; height: 35px; }
+.brand-logo.brand-ifood { max-width: 66px; height: 30px; }
+.brand-logo.brand-99 { max-width: 44px; height: 30px; }
+.brand-logo.brand-som-livre { max-width: 30px; height: 28px; }
+.brand-logo.brand-claro { max-width: 80px; height: 29px; }
+.brand-logo.brand-disney-pixar { max-width: 92px; height: 19px; }
+.brand-logo.brand-latam { max-width: 94px; height: 21px; }
+.brand-logo.brand-cinemark { max-width: 98px; height: 16px; }
+.brand-logo.brand-smart-fit { max-width: 76px; height: 29px; }
+.brand-logo.brand-brde { max-width: 72px; height: 30px; }
+.brand-logo.brand-hapvida { max-width: 90px; height: 21px; }
+.brand-logo.brand-sicredi { max-width: 90px; height: 21px; }
 
 @media (max-width: 900px) {
-  .brand-logo.brand-mercado-livre { max-width: 76px; height: 30px; }
-  .brand-logo.brand-amazon-prime { max-width: 74px; height: 31px; }
-  .brand-logo.brand-disney-pixar { max-width: 82px; height: 19px; }
+  .brand-pill { padding: 10px 13px; }
+  .brand-logo.brand-mercado-livre { max-width: 70px; height: 27px; }
+  .brand-logo.brand-amazon-prime { max-width: 68px; height: 28px; }
+  .brand-logo.brand-som-livre { max-width: 28px; height: 26px; }
+  .brand-logo.brand-disney-pixar { max-width: 76px; height: 17px; }
   .brand-logo.brand-latam,
   .brand-logo.brand-hapvida,
-  .brand-logo.brand-sicredi { max-width: 84px; height: 21px; }
-  .brand-logo.brand-cinemark { max-width: 88px; height: 16px; }
+  .brand-logo.brand-sicredi { max-width: 78px; height: 19px; }
+  .brand-logo.brand-cinemark { max-width: 82px; height: 15px; }
 }
 
 /* 2. Logos das marcas cortadas / encostando na borda.
