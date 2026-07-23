@@ -1,21 +1,21 @@
 const brands = [
-  { name: "Mercado Livre", logo: "assets/brands/mercado-livre.png" },
-  { name: "Amazon Prime", logo: "assets/brands/amazon-prime.svg", className: "wide" },
-  { name: "99Food", logo: "assets/brands/99food.png", className: "food-logo" },
+  { name: "Mercado Livre", logo: "assets/brands/mercado-livre.png", className: "brand-mercado-livre" },
+  { name: "Amazon Prime", logo: "assets/brands/amazon-prime.svg", className: "wide brand-amazon-prime" },
+  { name: "99Food", logo: "assets/brands/99food.png", className: "food-logo brand-99food" },
   { name: "Rede Globo", logo: "assets/brands/globo-icon.svg", className: "symbol" },
   { name: "Disney", logo: "assets/brands/disney-full-white.png", className: "wide disney" },
-  { name: "iFood", logo: "assets/brands/ifood.svg" },
-  { name: "99", logo: "assets/brands/99-wordmark.png", className: "number-logo" },
-  { name: "Som Livre", logo: "assets/brands/som-livre.png" },
+  { name: "iFood", logo: "assets/brands/ifood.svg", className: "brand-ifood" },
+  { name: "99", logo: "assets/brands/99-wordmark.png", className: "number-logo brand-99" },
+  { name: "Som Livre", logo: "assets/brands/som-livre.png", className: "brand-som-livre" },
   { name: "Dell", logo: "assets/brands/dell.svg", className: "symbol" },
-  { name: "Claro", logo: "assets/brands/claro-wordmark.svg", className: "wide" },
-  { name: "Disney Pixar", logo: "assets/brands/disney-pixar.png" },
-  { name: "LATAM Airlines", logo: "assets/brands/latam-airlines.svg", className: "wide" },
-  { name: "Cinemark", logo: "assets/brands/cinemark.png", className: "wide ultra-wide" },
-  { name: "Smart Fit", logo: "assets/brands/smart-fit.png", className: "wide" },
-  { name: "BRDE", logo: "assets/brands/brde.png", className: "wide" },
-  { name: "Hapvida", logo: "assets/brands/hapvida.png", className: "wide" },
-  { name: "Sicredi", logo: "assets/brands/sicredi.png", className: "wide" },
+  { name: "Claro", logo: "assets/brands/claro-wordmark.svg", className: "wide brand-claro" },
+  { name: "Disney Pixar", logo: "assets/brands/disney-pixar.png", className: "ultra-wide brand-disney-pixar" },
+  { name: "LATAM Airlines", logo: "assets/brands/latam-airlines.svg", className: "ultra-wide brand-latam" },
+  { name: "Cinemark", logo: "assets/brands/cinemark.png", className: "ultra-wide brand-cinemark" },
+  { name: "Smart Fit", logo: "assets/brands/smart-fit.png", className: "wide brand-smart-fit" },
+  { name: "BRDE", logo: "assets/brands/brde.png", className: "wide brand-brde" },
+  { name: "Hapvida", logo: "assets/brands/hapvida.png", className: "ultra-wide brand-hapvida" },
+  { name: "Sicredi", logo: "assets/brands/sicredi.png", className: "ultra-wide brand-sicredi" },
 ];
 
 const audioWorks = [
@@ -51,6 +51,35 @@ const audioElements = [];
 const audioControls = [];
 let brandPage = 0;
 let playingAudio = null;
+let brandTransitioning = false;
+
+// Mantém todas as artes já decodificadas antes da primeira troca. Assim o
+// navegador nunca reutiliza o frame da logo anterior enquanto a próxima carrega.
+// O limite curto impede que uma arte lenta ou inválida congele o carrossel.
+function preloadBrandLogo(source) {
+  return new Promise((resolve) => {
+    let settled = false;
+    const finish = () => {
+      if (settled) return;
+      settled = true;
+      window.clearTimeout(timeout);
+      resolve();
+    };
+    const image = new Image();
+    image.decoding = "async";
+    const timeout = window.setTimeout(finish, 1200);
+    image.addEventListener("load", () => {
+      if (image.decode) image.decode().catch(() => {}).finally(finish);
+      else finish();
+    }, { once: true });
+    image.addEventListener("error", finish, { once: true });
+    image.src = source;
+  });
+}
+
+const brandImagePreloads = new Map(
+  brands.map((brand) => [brand.logo, preloadBrandLogo(brand.logo)]),
+);
 
 document.querySelector("#year").textContent = new Date().getFullYear();
 
@@ -415,15 +444,36 @@ window.addEventListener("resize", () => {
 
 let brandTimer = null;
 
+function waitForBrandPage(page, count) {
+  const start = Math.min(page * count, Math.max(0, brands.length - count));
+  return Promise.all(
+    Array.from({ length: count }, (_, index) => brandImagePreloads.get(brands[start + index].logo) || Promise.resolve()),
+  );
+}
+
 function advanceBrands() {
+  if (brandTransitioning) return;
+  brandTransitioning = true;
+  const count = getBrandCount();
+  const nextPage = (brandPage + 1) % Math.ceil(brands.length / count);
+
   brandRow.classList.remove("is-visible");
   brandRow.classList.add("is-hidden");
   window.setTimeout(() => {
-    brandCount = getBrandCount();
-    brandPage = (brandPage + 1) % Math.ceil(brands.length / brandCount);
-    renderBrands();
-    brandRow.classList.remove("is-hidden");
-    brandRow.classList.add("is-visible");
+    waitForBrandPage(nextPage, count).then(() => {
+      brandCount = getBrandCount();
+      brandPage = nextPage;
+      renderBrands();
+      // Um frame com opacidade zero garante que as imagens novas entram juntas,
+      // sem revelar a logo anterior entre o fade-out e o fade-in.
+      window.requestAnimationFrame(() => {
+        window.requestAnimationFrame(() => {
+          brandRow.classList.remove("is-hidden");
+          brandRow.classList.add("is-visible");
+          brandTransitioning = false;
+        });
+      });
+    });
   }, 320);
 }
 
