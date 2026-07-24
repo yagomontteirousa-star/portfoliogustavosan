@@ -452,23 +452,6 @@ a {
   height: 15px;
 }
 
-.studio-credit {
-  justify-self: end;
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  color: #858a82;
-  font-size: 0.56rem;
-}
-
-.studio-credit img {
-  width: 120px;
-  height: 24px;
-  display: block;
-  object-fit: contain;
-  opacity: 0.88;
-}
-
 .mobile-dock {
   display: none;
 }
@@ -634,16 +617,6 @@ a {
   .micro-footer {
     padding-top: 18px;
     grid-template-columns: 1fr auto;
-  }
-
-  .studio-credit {
-    gap: 5px;
-    font-size: 0.5rem;
-  }
-
-  .studio-credit img {
-    width: 104px;
-    height: 21px;
   }
 
   .mobile-dock {
@@ -2100,20 +2073,6 @@ a {
   margin-bottom: 16px;
 }
 
-/* --- 5. Crédito do estúdio ------------------------------------------------
-   O wordmark renderizava a 22,8px de altura ao lado de um texto de ~9px.
-   Reduzido para ficar proporcional à linha de crédito. */
-.studio-credit img {
-  width: 72px;
-  height: 21px;
-}
-
-@media (max-width: 900px) {
-  .studio-credit img {
-    width: 62px;
-    height: 18px;
-  }}
-
 /* --- 6. Modal dos vídeos de trabalho --------------------------------------
    Antes o player substituía a miniatura dentro do card: espaço apertado,
    controles espremidos e o YouTube exigindo um segundo clique. Agora abre em
@@ -2838,22 +2797,8 @@ body.video-modal-open {
 }
 
 /* ==========================================================================
-   Ajustes finos: logo do rodapé e brilho de hover.
+   Ajustes finos: brilho de hover.
    ========================================================================== */
-
-/* Logo do Master Digital estava pequena demais ao lado do texto de crédito.
-   Aumentada mantendo a proporção do SVG (3,46:1). */
-.studio-credit img {
-  width: 96px;
-  height: 28px;
-}
-
-@media (max-width: 900px) {
-  .studio-credit img {
-    width: 80px;
-    height: 23px;
-  }
-}
 
 /* O brilho turquesa no hover ficava cortado em vários balões: quem contém os
    cards de áudio/vídeo é o .media-scroll, que precisa de overflow-x: hidden e
